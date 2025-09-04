@@ -1,0 +1,173 @@
+/* فایل assets/css/custom.css */
+
+/* وارد کردن فونت */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* متغیرهای CSS */
+:root {
+    /* فونت‌ها */
+    --font-persian: 'Vazirmatn', 'Tahoma', sans-serif;
+    --font-code: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+    
+    /* رنگ‌ها */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #e9ecef;
+    --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #ced4da 75%, #adb5bd 100%);
+    --text-color: #333;
+    --border-color: rgba(108, 117, 125, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --link-color: #0056b3;
+    --link-hover: #003d82;
+    
+    /* سایزها و فاصله‌ها */
+    --border-radius: 12px;
+    --border-radius-small: 8px;
+    --padding-main: 2rem;
+    --padding-small: 1rem;
+    --line-height: 1.8;
+    --font-size: 16px;
+    
+    /* شفافیت و افکت‌ها */
+    --bg-transparency: rgba(255, 255, 255, 0.95);
+    --blur-effect: blur(10px);
+    --box-shadow: 0 8px 32px var(--shadow-color);
+}
+
+/* استایل‌های پایه */
+body {
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: var(--font-persian);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    direction: rtl;
+    text-align: right;
+    color: var(--text-color);
+}
+
+/* پترن بک‌گراند */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 1px 1px, rgba(108, 117, 125, 0.15) 1px, transparent 0);
+    background-size: 20px 20px;
+    z-index: -2;
+}
+
+/* محتوای اصلی */
+.content, main, .main, article, section {
+    background: var(--bg-transparency);
+    backdrop-filter: var(--blur-effect);
+    border-radius: var(--border-radius);
+    padding: var(--padding-main);
+    margin: 1rem;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color);
+    font-family: var(--font-persian);
+    direction: rtl;
+    text-align: right;
+}
+
+/* عناوین */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-persian);
+    direction: rtl;
+    text-align: right;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+h1 { font-size: 2.2rem; font-weight: 700; }
+h2 { font-size: 1.8rem; font-weight: 600; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.3rem; font-weight: 500; }
+
+/* متن و پاراگراف‌ها */
+p, li, td, th {
+    font-family: var(--font-persian);
+    direction: rtl;
+    text-align: right;
+    line-height: var(--line-height);
+}
+
+/* کدها - حفظ LTR */
+pre, code, .sourceCode, .hljs {
+    font-family: var(--font-code) !important;
+    direction: ltr !important;
+    text-align: left !important;
+    background: var(--bg-primary) !important;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    padding: var(--padding-small);
+}
+
+/* فرمول‌های ریاضی */
+.math {
+    text-align: center !important;
+    direction: ltr !important;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+/* لیست‌ها */
+ul, ol {
+    direction: rtl;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+/* جداول */
+table {
+    background: var(--bg-transparency);
+    border: 1px solid var(--border-color);
+    direction: rtl;
+    width: 100%;
+}
+
+th, td {
+    text-align: right;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    background: var(--bg-primary) !important;
+    font-weight: 600;
+}
+
+/* لینک‌ها */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* سایدبار و ناوبار */
+.sidebar, .navbar {
+    background: var(--bg-transparency) !important;
+    backdrop-filter: var(--blur-effect);
+    font-family: var(--font-persian);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .content, main, .main {
+        margin: 0.5rem;
+        padding: var(--padding-small);
+    }
+    
+    :root {
+        --font-size: 15px;
+    }
+}
+

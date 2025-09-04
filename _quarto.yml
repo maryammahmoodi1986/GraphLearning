@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "آمار چندمتغیره پیشرفته"
+  description: "کتاب جامع آمار چندمتغیره با رویکرد عملی"
+  
+  navbar:
+    right:
+      - text: "خانه"
+        href: index.qmd
+      - text: "فصل‌ها"
+        menu:
+          - text: "فصل 1: مبانی آمار چندمتغیره"
+            href: chapter1/index.qmd
+          - text: "فصل 2: مدل‌های خطی تعمیم‌یافته"  
+            href: chapter2/index.qmd
+  
+  sidebar:
+    style: "docked"
+    background: light
+    contents:
+      - text: "فصل 1: مبانی آمار چندمتغیره"
+        href: chapter1/index.qmd
+      - section: "بخش‌های فصل 1"
+        contents:
+          - chapter1/section1-2.qmd
+          - chapter1/section1-3.qmd
+          - chapter1/section1-4.qmd
+          - chapter1/section1-5.qmd
+          - chapter1/section1-6.qmd
+          - chapter1/section1-7.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: assets/css/custom.css
+    toc: true
+    toc-location: right  # با dir: rtl بهتر است سمت راست باشد
+    number-sections: true
+    highlight-style: github
+    code-fold: true
+    code-tools: true
+    code-copy: true
+    lang: fa
+    dir: rtl

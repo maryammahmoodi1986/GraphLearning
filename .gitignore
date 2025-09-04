@@ -1,0 +1,9 @@
+/.quarto/
+_site/
+.DS_Store
+*.html
+.Rproj.user
+*.Rproj
+.venv/
+__pycache__/
+*.pyc

@@ -1,0 +1,33 @@
+---
+title: "About"
+---
+
+
+ ✨ About Me  
+
+Hi! I’m **Maryam Mahmoodi**.  
+I hold a **B.Sc. in Statistics** and I am currently a **M.Sc. student in Data Science** at Allameh Tabataba’i University.  
+
+---
+
+ 🎯 Research Interests  
+- Deep Learning and Generative Models (GANs)  
+- Statistics and Data-Driven Methods  
+- Computer Vision and Image Processing  
+
+---
+
+ 📚 Research Path  
+Throughout my academic journey, I have worked on various projects in **data analysis, feature extraction, and generative model design**.  
+My main goal is to combine **statistical approaches** with the power of **machine learning** to solve complex real-world problems.  
+
+---
+
+ 📌 Contact Me  
+
+- ✉️ Email: [maryam.mahmoodi1986@gmail.com](mailto:maryam.mahmoodi1986@gmail.com)  
+- 🔗 LinkedIn: [linkedin.com/in/maryammahmoodi1986](https://www.linkedin.com/in/maryammahmoodi1986/)  
+- 💻 GitHub: [github.com/maryammahmoodi1986](https://github.com/maryammahmoodi1986)  
+
+---
+
