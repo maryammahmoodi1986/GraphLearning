@@ -28,12 +28,15 @@ format:
     theme: cosmo
     css: assets/css/custom.css
     toc: true
+    toc-location: left
     toc-depth: 3
     number-sections: true
     code-tools: false
     code-fold: false
     lang: fa
     dir: rtl
+    sidebar: false   
+
     
 execute:
   freeze: auto

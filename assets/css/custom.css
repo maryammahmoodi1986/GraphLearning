@@ -96,6 +96,7 @@ p, li, td, th {
     line-height: var(--line-height);
 }
 
+
 /* کدها - حفظ LTR */
 pre, code, .sourceCode, .hljs {
     font-family: var(--font-code) !important;
@@ -222,5 +223,27 @@ a:hover {
   margin-right: 0;
   margin-left: auto;
 }
+
+/* ظاهر کد بلاک‌ها */
+pre code {
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+  background: #1e1e1e;
+  color: #dcdcdc;
+  border-radius: 8px;
+  padding: 12px;
+  display: block;
+  line-height: 1.5;
+}
+
+/* ظاهر دکمه کپی */
+.quarto-code-copy-button {
+  background-color: #444;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+}
+
 
 
