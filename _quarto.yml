@@ -14,23 +14,13 @@ website:
       - text: فصل‌ها
         menu:
           - text: "فصل ۱: مقدمه و مفاهیم پایه توزیع نرمال"
-            href: content/lessons/chapter-01.qmd
-          - text: "فصل ۲: گراف بیزی - ساختار، استقلال و ارزیابی" 
-            href: content/lessons/chapter-02.qmd
-          - text: "فصل ۳: شبیه‌سازی"
-            href: content/lessons/chapter-03.qmd
-          - text: "فصل ۴: تحلیل تطبیقی MCMC و Gibbs Sampling"
-            href: content/lessons/chapter-04.qmd
-      - text: پروژه‌ها
-        menu:
-          - text: "پروژه فصل ۱: تحلیل توزیع نرمال چندمتغیره"
-            href: content/projects/project-01.ipynb
-          - text: "پروژه فصل ۲: پیاده‌سازی گراف‌های بیزی"
-            href: content/projects/project-02.ipynb
-          - text: "پروژه فصل ۳: شبیه‌سازی مونت کارلو"
-            href: content/projects/project-03.ipynb
-          - text: "پروژه فصل ۴: الگوریتم MCMC"
-            href: content/projects/project-04.ipynb
+            href: chapter1/index.qmd
+          - text: "فصل ۲: گراف‌های بیزی - ساختار، استقلال و ارزیابی" 
+            href: chapter2/index.qmd
+          - text: "فصل ۳: موضوعات پیشرفته"
+            href: chapter3/index.qmd
+          - text: "فصل ۴: پروژه‌ها و کاربردها"
+            href: chapter4/index.qmd
 
   
 format:
