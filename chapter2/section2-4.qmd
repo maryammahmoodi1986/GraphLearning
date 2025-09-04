@@ -1,7 +1,7 @@
 ---
 title: "ترتیب‌دهی گره‌ها"
 ---
-[قبلی](section2-3.qmd) 
+[قبلی](section2-3.qmd) | [پروژه](section2-exercises.ipynb)
 
 ---
 
@@ -185,4 +185,4 @@ ITNO از MI برای ساخت ماتریس وابستگی استفاده می�
 
 ---
 
-[قبلی](section2-3.qmd) 
+[قبلی](section2-3.qmd) | [پروژه](section2-exercises.ipynb)
