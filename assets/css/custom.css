@@ -171,3 +171,56 @@ a:hover {
     }
 }
 
+/* Navigation buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: #e9ecef;
+  text-decoration: none;
+  color: #0056b3;
+}
+
+.nav-button.prev {
+  margin-left: auto;
+}
+
+.nav-button.next {
+  margin-right: auto;
+}
+
+.nav-button i {
+  margin: 0 5px;
+}
+
+/* RTL Support */
+[dir="rtl"] .nav-button.prev {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .nav-button.next {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+

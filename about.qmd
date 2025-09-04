@@ -1,33 +1,43 @@
 ---
-title: "About"
+title: "درباره این درس"
 ---
 
 
- ✨ About Me  
 
-Hi! I’m **Maryam Mahmoodi**.  
-I hold a **B.Sc. in Statistics** and I am currently a **M.Sc. student in Data Science** at Allameh Tabataba’i University.  
+این مجموعه درس‌ها به موضوع **گراف‌های یادگیری ماشین** (Machine Learning Graphs) اختصاص دارد که یکی از شاخه‌های پیشرفته و کاربردی علم داده و هوش مصنوعی محسوب می‌شود.
 
----
 
- 🎯 Research Interests  
-- Deep Learning and Generative Models (GANs)  
-- Statistics and Data-Driven Methods  
-- Computer Vision and Image Processing  
+ 👨‍🎓 دکتر رضایی تبار
+**استاد **  
+دانشگاه علامه طباطبائی  
+📧 ایمیل: [rezaeitabar@atu.ac.ir](mailto:rezaeitabar@atu.ac.ir)
 
----
-
- 📚 Research Path  
-Throughout my academic journey, I have worked on various projects in **data analysis, feature extraction, and generative model design**.  
-My main goal is to combine **statistical approaches** with the power of **machine learning** to solve complex real-world problems.  
+ 👩‍💻 مریم محمودی
+**دانشجوی **  
+دانشگاه علامه طباطبائی  
+📧 ایمیل: [maryammahmoodi@atu.ac.ir](mailto:maryam.mahmoodi@student.atu.ac.ir)
 
 ---
 
- 📌 Contact Me  
+هدف از این درس‌ها
 
-- ✉️ Email: [maryam.mahmoodi1986@gmail.com](mailto:maryam.mahmoodi1986@gmail.com)  
-- 🔗 LinkedIn: [linkedin.com/in/maryammahmoodi1986](https://www.linkedin.com/in/maryammahmoodi1986/)  
-- 💻 GitHub: [github.com/maryammahmoodi1986](https://github.com/maryammahmoodi1986)  
+این مجموعه درس‌ها با هدف **یادگیری عمیق‌تر** و **کاربردی‌تر** مفاهیم گراف‌های یادگیری ماشین تدوین شده است. در اینجا سعی داریم:
+
+- مفاهیم پیچیده را به زبان ساده توضیح دهیم
+- مثال‌های کاربردی و کدهای عملی ارائه کنیم  
+- فرآیند یادگیری را تعاملی و جذاب کنیم
+- دانشجویان و علاقه‌مندان را در مسیر تسلط بر این حوزه یاری کنیم
+
+ موضوعات تحت پوشش
+
+- 📊 مقدمه و مفاهیم پایه توزیع نرمال
+- 📈 گراف بیزی - ساختار، استقلال و ارزیابی
+- 🕸️ شبیه‌سازی مونت کارلو
+- 🎲 الگوریتم MCMC
 
 ---
+
+*امیدواریم این منابع آموزشی برای شما مفید واقع شوند و در مسیر یادگیری‌تان کمک‌رسان باشند.*
+
+**دانشگاه علامه طباطبائی** | **دانشکده ریاضی و علوم کامپیوتر**
 

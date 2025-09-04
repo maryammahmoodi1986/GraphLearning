@@ -1,319 +1,71 @@
 ---
-title: "1-5. رتبه ماتریس هت و ارتباط آن با تحلیل چندمتغیره"
+title: "۱-۵ رتبه ماتریس هسین و ارتباط آن با تحلیل چندمتغیره"
+format:
+  html:
+    toc: true
 ---
 
-# رتبه ماتریس هت و ارتباط آن با تحلیل چندمتغیره
 
-در تحلیل رگرسیون خطی و آمار چندمتغیره، ماتریس هت (Hat Matrix) یکی از مفاهیم بنیادی است که پل ارتباطی بین هندسه خطی، تخمین آماری، و تشخیص مشکلات داده‌ها محسوب می‌شود. این ماتریس نه تنها در فهم مکانیزم پیش‌بینی نقش کلیدی دارد، بلکه رتبه آن اطلاعات مهمی درباره کیفیت داده‌ها و پایداری مدل ارائه می‌دهد.
+[قبلی](section1-4.qmd) | [بعدی](section1-6.qmd)
 
-درک عمیق از ماتریس هت و رتبه آن، بینش‌هایی در مورد مسائلی مانند هم‌خطی چندگانه، ناپایداری عددی، و انتخاب مدل فراهم می‌آورد که در کاربردهای عملی بسیار حائز اهمیت است.
+ماتریس هسین (H) در رگرسیون خطی به عنوان ماتریس پروژکشن شناخته می‌شود و نقش کلیدی در تحلیل چندمتغیره ایفا می‌کند. درک رتبه این ماتریس و ارتباط آن با مفاهیم دیگر تحلیل چندمتغیره، برای تفسیر صحیح نتایج و پایداری مدل‌های آماری حائز اهمیت است.
 
-## تعریف ماتریس هت
+## تعریف ماتریس هسین
 
-ماتریس هت ($H$) در رگرسیون خطی به عنوان ماتریس پروژکشن شناخته می‌شود و به صورت زیر تعریف می‌شود:
+ماتریس هسین در رگرسیون خطی به صورت زیر تعریف می‌شود:
 
 $$H = X(X^TX)^{-1}X^T$$
 
-که در آن:
-- $X$ ماتریس طراحی (Design Matrix) با ابعاد $n \times p$ است
-- $n$ تعداد مشاهدات (نمونه‌ها)
-- $p$ تعداد متغیرهای پیش‌بین (شامل عرض از مبدأ)
+که در آن $X$ ماتریس طراحی (design matrix) با $n$ ردیف (مشاهدات) و $p$ ستون (متغیرها) است. این ماتریس برای محاسبه مقادیر پیش‌بینی‌شده ($\hat{Y} = HY$) استفاده می‌شود.
 
-### خواص بنیادی ماتریس هت
+##  ماتریس واریانس-کوواریانس نمونه‌ای
 
-1. **خاصیت پروژکشن:** $H^2 = H$ (idempotent)
-2. **تقارن:** $H = H^T$
-3. **مقادیر ویژه:** فقط 0 یا 1 (به دلیل خاصیت idempotent)
-4. **رد ماتریس:** $\text{tr}(H) = \text{rank}(X) = p$ (در حالت کامل رتبه)
+ماتریس واریانس-کوواریانس نمونه‌ای (S) به صورت زیر تعریف می‌شود:
 
-### تفسیر هندسی
+$$S = \frac{1}{n-1}X^HX^T$$
 
-ماتریس هت، بردار مقادیر مشاهده شده $y$ را بر روی فضای ستونی (Column Space) ماتریس $X$ پروژکت می‌کند:
+این ماتریس از ماتریس $H$ استفاده می‌کند و رتبه $H$ بر تخمین واریانس‌ها تأثیر می‌گذارد.
 
-$$\hat{y} = Hy$$
+##  رتبه ماتریس هسین و مسائل آن
 
-این پروژکشن نزدیک‌ترین نقطه در فضای ستونی $X$ به بردار $y$ را پیدا می‌کند، که همان مقادیر پیش‌بینی شده است.
+رتبه ماتریس هسین معمولاً برابر با $p$ (تعداد متغیرهای پیش‌بین‌کننده) است، مگر اینکه ستون‌های $X$ دارای هم‌خطی (multicollinearity) باشند که در این صورت رتبه کاهش می‌یابد.
 
-## رتبه ماتریس هت
+## تأثیر کاهش رتبه
 
-رتبه ماتریس هت اطلاعات کلیدی درباره ساختار داده‌ها و کیفیت مدل ارائه می‌دهد.
+اگر رتبه به دلیل هم‌خطی کاهش یابد، تخمین‌ها ناپایدار می‌شوند. این مشکل در روش‌های پیشرفته‌تر مانند:
 
-### حالت‌های مختلف رتبه
+- رگرسیون مؤلفه‌های اصلی
+- روش‌های منظم‌سازی (Ridge)
 
-#### 1. رتبه کامل (Full Rank)
+اصلاح می‌شود.
 
-زمانی که $\text{rank}(H) = p$:
-- ماتریس $X^TX$ معکوس‌پذیر است
-- هیچ هم‌خطی دقیقی بین متغیرهای پیش‌بین وجود ندارد
-- تخمین‌های $\beta$ یکتا و BLUE هستند (Best Linear Unbiased Estimators)
+## ارتباط مفاهیم چندمتغیره
 
-#### 2. رتبه کاسته (Rank Deficient)
+این سه مفهوم به طور تنگاتنگ با یکدیگر مرتبط هستند:
 
-زمانی که $\text{rank}(H) < p$:
-- ماتریس $X^TX$ منفرد (singular) است
-- هم‌خطی دقیق (Perfect Multicollinearity) وجود دارد
-- تخمین‌های $\beta$ یکتا نیستند
+## ماتریس دقت
+ماتریس دقت از $\Sigma^{-1}$ مشتق می‌شود و برای مدل‌سازی وابستگی‌های شرطی استفاده می‌شود.
 
-### محاسبه رتبه در عمل
+## تجزیه چولسکی و طیفی
+- **تجزیه چولسکی**: برای تحلیل $\Sigma$ و شبیه‌سازی استفاده می‌شود
+- **تجزیه طیفی**: برای PCA استفاده می‌شود
 
-```python
-import numpy as np
+##  نقش ماتریس هسین
+ماتریس هسین در تخمین $\Sigma$ یا $S$ نقش دارد، و رتبه آن پایداری تخمین‌ها را تعیین می‌کند.
 
-def calculate_hat_matrix_rank(X, tolerance=1e-10):
-    """محاسبه رتبه ماتریس هت"""
-    
-    # محاسبه مقادیر ویژه X^T X
-    XTX = X.T @ X
-    eigenvalues = np.linalg.eigvals(XTX)
-    
-    # شمارش مقادیر ویژه غیرصفر
-    rank = np.sum(eigenvalues > tolerance)
-    
-    # محاسبه عدد شرط
-    condition_number = eigenvalues.max() / eigenvalues.min()
-    
-    return rank, condition_number
+##  کاربرد عملی
 
-# مثال
-X = np.array([[1, 2, 4],    # ستون سوم = 2 × ستون دوم
-              [1, 3, 6],    # هم‌خطی دقیق
-              [1, 4, 8],
-              [1, 5, 10]])
+فرض کنید یک داده‌ست سه‌متغیره داریم. فرآیند تحلیل به صورت زیر خواهد بود:
 
-rank, cond_num = calculate_hat_matrix_rank(X)
-print(f"رتبه ماتریس: {rank}")
-print(f"عدد شرط: {cond_num:.2e}")
+1. ابتدا $\Sigma$ را تخمین می‌زنیم
+2. سپس $\Omega$ را محاسبه می‌کنیم
+3. با تجزیه چولسکی، داده‌های شبیه‌سازی‌شده تولید می‌کنیم
+4. با تجزیه طیفی، مؤلفه‌های اصلی را استخراج می‌کنیم
+5. در نهایت، با رگرسیون خطی و ماتریس هسین، پیش‌بینی انجام می‌دهیم و رتبه را بررسی می‌کنیم تا از پایداری مدل اطمینان حاصل کنیم
 
-## ارتباط با ماتریس واریانس-کوواریانس نمونه‌ای
 
-ماتریس واریانس-کوواریانس نمونه‌ای ($S$) به صورت زیر با ماتریس هت مرتبط است:
 
-$$S = \frac{1}{n-1}X^T(I-H)X$$
-
-که در آن $(I-H)$ ماتریس باقی‌مانده (Residual Matrix) است.
-
-### تأثیر رتبه بر تخمین واریانس
-
-1. **رتبه کامل:** تخمین‌های واریانس پایدار و قابل اعتماد
-2. **رتبه کاسته:** تخمین‌های واریانس ناپایدار و بی‌نهایت بزرگ
-
-### مثال عملی
-
-python
-def variance_covariance_analysis(X, y):
-    """تحلیل ماتریس واریانس-کوواریانس"""
-    
-    n, p = X.shape
-    
-    # محاسبه ماتریس هت
-    try:
-        XTX_inv = np.linalg.inv(X.T @ X)
-        H = X @ XTX_inv @ X.T
-        
-        # محاسبه باقی‌مانده‌ها
-        y_pred = H @ y
-        residuals = y - y_pred
-        
-        # تخمین واریانس خطا
-        sigma_squared = np.sum(residuals**2) / (n - p)
-        
-        # ماتریس واریانس-کوواریانس ضرایب
-        var_beta = sigma_squared * XTX_inv
-        
-        return {
-            'hat_matrix': H,
-            'predictions': y_pred,
-            'residuals': residuals,
-            'sigma_squared': sigma_squared,
-            'var_covariance_beta': var_beta,
-            'standard_errors': np.sqrt(np.diag(var_beta))
-        }
-        
-    except np.linalg.LinAlgError:
-        return {'error': 'ماتریس منفرد است - هم‌خطی وجود دارد'}
-
-## تشخیص و حل مشکل هم‌خطی
-
-### 1. شاخص‌های تشخیص
-
-#### عامل تورم واریانس (VIF)
-
-$$\text{VIF}_j = \frac{1}{1-R_j^2}$$
-
-که $R_j^2$ ضریب تعیین رگرسیون متغیر $j$ بر سایر متغیرها است.
-
-- $\text{VIF} > 10$: هم‌خطی شدید
-- $\text{VIF} > 5$: هم‌خطی متوسط
-
-#### عدد شرط (Condition Number)
-
-$$\kappa(X^TX) = \frac{\lambda_{\max}}{\lambda_{\min}}$$
-
-- $\kappa > 30$: هم‌خطی متوسط
-- $\kappa > 100$: هم‌خطی شدید
-
-### 2. راه‌حل‌های عملی
-
-#### الف) رگرسیون ریج (Ridge Regression)
-
-به جای حل مستقیم، از تنظیم‌سازی استفاده می‌کند:
-
-$$\hat{\beta}_{\text{ridge}} = (X^TX + \lambda I)^{-1}X^Ty$$
-
-که ماتریس هت اصلاح شده:
-
-$$H_{\text{ridge}} = X(X^TX + \lambda I)^{-1}X^T$$
-
-#### ب) رگرسیون مؤلفه‌های اصلی (PCR)
-
-از تجزیه طیفی $X^TX$ استفاده می‌کند:
-
-python
-def pcr_analysis(X, y, n_components):
-    """رگرسیون مؤلفه‌های اصلی"""
-    
-    # مرکزیت داده‌ها
-    X_centered = X - np.mean(X, axis=0)
-    
-    # تجزیه طیفی
-    eigenvalues, eigenvectors = np.linalg.eigh(X_centered.T @ X_centered)
-    
-    # مرتب‌سازی نزولی
-    idx = np.argsort(eigenvalues)[::-1]
-    eigenvalues = eigenvalues[idx]
-    eigenvectors = eigenvectors[:, idx]
-    
-    # انتخاب مؤلفه‌های اصلی
-    PC_loadings = eigenvectors[:, :n_components]
-    PC_scores = X_centered @ PC_loadings
-    
-    # رگرسیون بر روی مؤلفه‌ها
-    beta_pc = np.linalg.lstsq(PC_scores, y, rcond=None)[0]
-    
-    # تبدیل به فضای اصلی
-    beta_original = PC_loadings @ beta_pc
-    
-    return {
-        'principal_components': PC_loadings,
-        'pc_scores': PC_scores,
-        'beta_pc': beta_pc,
-        'beta_original': beta_original,
-        'explained_variance': eigenvalues / np.sum(eigenvalues)
-    }
-
-## مثال جامع کاربردی
-
-python
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-
-def comprehensive_regression_analysis(X, y):
-    """تحلیل جامع رگرسیون با بررسی رتبه و هم‌خطی"""
-    
-    n, p = X.shape
-    
-    # 1. محاسبه رتبه و عدد شرط
-    rank = np.linalg.matrix_rank(X)
-    cond_num = np.linalg.cond(X.T @ X)
-    
-    # 2. محاسبه VIF
-    vif_scores = []
-    for i in range(1, p):  # بدون عرض از مبدأ
-        X_i = np.delete(X, i, axis=1)
-        y_i = X[:, i]
-        r_squared = 1 - np.var(y_i - X_i @ np.linalg.lstsq(X_i, y_i, rcond=None)[0]) / np.var(y_i)
-        vif = 1 / (1 - r_squared) if r_squared < 0.9999 else np.inf
-        vif_scores.append(vif)
-    
-    # 3. تحلیل مؤلفه‌های اصلی
-    eigenvals, eigenvecs = np.linalg.eigh(X.T @ X)
-    eigenvals = eigenvals[::-1]  # نزولی
-    
-    # 4. رگرسیون معمولی (اگر امکان‌پذیر)
-    results = {
-        'rank': rank,
-        'full_rank': rank == p,
-        'condition_number': cond_num,
-        'vif_scores': vif_scores,
-        'eigenvalues': eigenvals,
-        'explained_variance_ratio': eigenvals / np.sum(eigenvals)
-    }
-    
-    if rank == p and cond_num < 1e12:
-        # رگرسیون معمولی
-        beta = np.linalg.solve(X.T @ X, X.T @ y)
-        H = X @ np.linalg.solve(X.T @ X, X.T)
-        y_pred = H @ y
-        residuals = y - y_pred
-        
-        results.update({
-            'beta': beta,
-            'predictions': y_pred,
-            'residuals': residuals,
-            'r_squared': 1 - np.var(residuals) / np.var(y)
-        })
-    else:
-        # رگرسیون ریج
-        lambda_ridge = 0.1
-        beta_ridge = np.linalg.solve(X.T @ X + lambda_ridge * np.eye(p), X.T @ y)
-        H_ridge = X @ np.linalg.solve(X.T @ X + lambda_ridge * np.eye(p), X.T)
-        
-        results.update({
-            'beta_ridge': beta_ridge,
-            'lambda_ridge': lambda_ridge,
-            'method': 'Ridge Regression (due to multicollinearity)'
-        })
-    
-    return results
-
-# مثال کاربردی
-np.random.seed(42)
-n, p = 100, 4
-
-# ایجاد داده با هم‌خطی
-X = np.random.randn(n, p)
-X[:, 0] = 1  # عرض از مبدأ
-X[:, 3] = X[:, 1] + X[:, 2] + 0.1 * np.random.randn(n)  # هم‌خطی تقریبی
-
-y = X @ np.array([1, 2, -1.5, 0.5]) + 0.5 * np.random.randn(n)
-
-# تحلیل
-results = comprehensive_regression_analysis(X, y)
-
-print("=== نتایج تحلیل رگرسیون ===")
-print(f"رتبه ماتریس: {results['rank']}")
-print(f"رتبه کامل: {results['full_rank']}")
-print(f"عدد شرط: {results['condition_number']:.2e}")
-print(f"VIF scores: {results['vif_scores']}")
-
-## کاربردهای پیشرفته
-
-### 1. تشخیص نقاط پرت (Leverage Points)
-
-عناصر قطری ماتریس هت ($h_{ii}$) نشان‌دهنده اهرم (leverage) هر مشاهده است:
-
-- $h_{ii} > \frac{2p}{n}$: مشاهده با اهرم بالا
-- $h_{ii} > \frac{3p}{n}$: مشاهده مشکوک
-
-### 2. تحلیل باقی‌مانده‌ها
-
-باقی‌مانده‌های استانداردشده:
-
-$$r_i = \frac{e_i}{\hat{\sigma}\sqrt{1-h_{ii}}}$$
-
-### 3. آزمون‌های تشخیصی
-
-- **آزمون Durbin-Watson** برای خودهمبستگی
-- **آزمون Breusch-Pagan** برای ناهمسانی واریانس
-- **آزمون RESET** برای خطی‌بودن
 
 ---
 
-درک عمیق از ماتریس هت و رتبه آن، پایه‌ای محکم برای کار با مدل‌های پیچیده‌تر فراهم می‌آورد. این مفاهیم نه تنها در رگرسیون خطی کاربرد دارند، بلکه در یادگیری ماشین، تحلیل چندمتغیره، و آمار کاربردی نیز نقش کلیدی ایفا می‌کنند.
-
-تسلط بر این موضوعات برای هر تحلیل‌گر داده که قصد کار با داده‌های واقعی و پیچیده را دارد، ضروری است زیرا کمک می‌کند تا مشکلات احتمالی را زودتر شناسایی کرده و راه‌حل‌های مناسب را اتخاذ کند.
-
----
-
-[قبلی: تجزیه چولسکی و تجزیه طیفی ←](section1-4.qmd) | [بعدی: آزمون‌های چندمتغیره →](section1-6.qmd)
+[قبلی](section1-4.qmd) | [بعدی](section1-6.qmd)
