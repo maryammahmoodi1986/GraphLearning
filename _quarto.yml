@@ -9,8 +9,6 @@ website:
     left:
       - href: index.qmd
         text: صفحه اصلی
-      - href: about.qmd
-        text: درباره درس
       - text: فصل‌ها
         menu:
           - text: "فصل ۱: مقدمه و مفاهیم پایه توزیع نرمال"
@@ -22,21 +20,31 @@ website:
           - text: "فصل ۴: پروژه‌ها و کاربردها"
             href: chapter4/index.qmd
 
+  sidebar:
+    style: "floating"
+    contents:
+      - text: "صفحه اصلی"
+        href: index.qmd
+      - text: "فصل ۱"
+        href: chapter1/index.qmd
+      - text: "فصل ۲"
+        href: chapter2/index.qmd
+      - text: "فصل ۳"
+        href: chapter3/index.qmd
+      - text: "فصل ۴"
+        href: chapter4/index.qmd
   
 format:
   html:
     theme: cosmo
     css: assets/css/custom.css
     toc: true
-    toc-location: left
     toc-depth: 3
     number-sections: true
     code-tools: false
     code-fold: false
     lang: fa
     dir: rtl
-    sidebar: false   
-
     
 execute:
   freeze: auto

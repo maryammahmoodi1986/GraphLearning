@@ -1,4 +1,4 @@
-/* فایل assets/css/custom.css */
+/* فایل assets/css/custom.css - نسخه ساده و کاربردی */
 
 /* وارد کردن فونت */
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -42,7 +42,7 @@ body {
     font-size: var(--font-size);
     line-height: var(--line-height);
     direction: rtl;
-    text-align: right;
+    text-align: justify;
     color: var(--text-color);
 }
 
@@ -96,7 +96,6 @@ p, li, td, th {
     line-height: var(--line-height);
 }
 
-
 /* کدها - حفظ LTR */
 pre, code, .sourceCode, .hljs {
     font-family: var(--font-code) !important;
@@ -108,12 +107,102 @@ pre, code, .sourceCode, .hljs {
     padding: var(--padding-small);
 }
 
-/* فرمول‌های ریاضی */
-.math {
+/* Jupyter Notebook - تم تاریک */
+.cell {
+    margin: 1.5rem 0;
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* سل‌های کد - پس‌زمینه تاریک */
+.cell-input,
+div[class*="cell"][class*="code"] pre,
+.sourceCode {
+    background: #2d3748 !important;
+    color: #e2e8f0 !important;
+    border: none !important;
+    padding: 1rem !important;
+    margin: 0 !important;
+}
+
+.cell-input pre,
+.cell-input code {
+    background: transparent !important;
+    color: #1e1e1e !important;
+    border: none !important;
+}
+
+/* خروجی‌های Jupyter */
+.cell-output {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    padding: 1rem;
+}
+
+.cell-output pre {
+    background: #f7fafc !important;
+    color: #2d3748 !important;
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem !important;
+    font-size: 0.85rem;
+}
+
+/* فرمول‌های ریاضی - بدون پس‌زمینه اضافی */
+.math, .katex, .MathJax {
     text-align: center !important;
     direction: ltr !important;
     font-size: 1.1rem;
     margin: 1rem 0;
+    /* هیچ پس‌زمینه اضافی نداریم */
+}
+
+/* متن‌های مارک‌داون در Jupyter - فونت کوچکتر */
+.cell .rendered_html,
+.cell .jp-RenderedHTMLCommon,
+.cell-output .rendered_html p,
+.cell-output .rendered_html h1,
+.cell-output .rendered_html h2,
+.cell-output .rendered_html h3,
+.cell-output .rendered_html h4,
+.cell-output .rendered_html h5,
+.cell-output .rendered_html h6,
+.cell-output p,
+.cell-output h1,
+.cell-output h2,
+.cell-output h3,
+.cell-output h4,
+.cell-output h5,
+.cell-output h6 {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    font-family: var(--font-persian) !important;
+}
+
+.cell-output h1 { font-size: 1.4rem !important; }
+.cell-output h2 { font-size: 1.2rem !important; }
+.cell-output h3 { font-size: 1.1rem !important; }
+.cell-output h4 { font-size: 1rem !important; }
+
+/* جداول در Jupyter */
+.cell-output table {
+    font-size: 0.85rem !important;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.cell-output table th,
+.cell-output table td {
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    font-size: 0.8rem !important;
+}
+
+.cell-output table th {
+    background: #f7fafc;
+    font-weight: 600;
 }
 
 /* لیست‌ها */
@@ -123,7 +212,7 @@ ul, ol {
     padding-right: 2rem;
 }
 
-/* جداول */
+/* جداول معمولی */
 table {
     background: var(--bg-transparency);
     border: 1px solid var(--border-color);
@@ -160,6 +249,58 @@ a:hover {
     font-family: var(--font-persian);
 }
 
+/* Navigation buttons */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+    background-color: #e9ecef;
+    text-decoration: none;
+    color: #0056b3;
+}
+
+.nav-button.prev {
+    margin-left: auto;
+}
+
+.nav-button.next {
+    margin-right: auto;
+}
+
+.nav-button i {
+    margin: 0 5px;
+}
+
+/* RTL Support */
+[dir="rtl"] .nav-button.prev {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+[dir="rtl"] .nav-button.next {
+    margin-right: 0;
+    margin-left: auto;
+}
+
 /* responsive */
 @media (max-width: 768px) {
     .content, main, .main {
@@ -170,80 +311,86 @@ a:hover {
     :root {
         --font-size: 15px;
     }
+    
+    .cell-output .rendered_html,
+    .cell-output p,
+    .cell-output h1,
+    .cell-output h2,
+    .cell-output h3,
+    .cell-output h4 {
+        font-size: 0.8rem !important;
+    }
 }
 
-/* Navigation buttons */
-.navigation-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 0;
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #dee2e6;
+p, li, td, th {
+    text-align: justify !important;
 }
 
-.nav-button {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #007bff;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
+/* کوچک کردن عنوان */
+#toc-title {
+    font-size: 0.85rem !important; /* یا معادل 13px */
+    font-weight: 600;
 }
 
-.nav-button:hover {
-  background-color: #e9ecef;
-  text-decoration: none;
-  color: #0056b3;
+/* کوچک کردن لینک‌های داخل TOC */
+#TOC a {
+    font-size: 0.6rem !important; /* یا معادل 12-13px */
+}
+/* ورودی سلول‌های ژوپیتر (CodeMirror) - رنگ سفید و بک‌گراند مشکی */
+.input_area,
+.input_area .CodeMirror,
+.input_area .CodeMirror-scroll,
+.input_area .CodeMirror-sizer,
+.input_area .CodeMirror-lines,
+.input_area .CodeMirror pre,
+.input_area .CodeMirror-line,
+.input_area .CodeMirror span {
+    background-color: #000 !important;
+    color: #fff !important;
+    text-align: left !important;
+    direction: ltr !important;
+    font-family: var(--font-code) !important;
 }
 
-.nav-button.prev {
-  margin-left: auto;
+/* شماره خطوط */
+.input_area .CodeMirror-gutters,
+.input_area .CodeMirror-gutter,
+.input_area .CodeMirror-linenumbers {
+    background-color: #000 !important;
+    color: #aaa !important;
+    border: none !important;
 }
 
-.nav-button.next {
-  margin-right: auto;
+/* حالت Quarto با .sourceCode */
+div[class*="cell"][class*="code"] .sourceCode,
+div[class*="cell"][class*="code"] .sourceCode pre,
+div[class*="cell"][class*="code"] .sourceCode span {
+    background-color: #000 !important;
+    color: #fff !important;
+    text-align: left !important;
+    direction: ltr !important;
+    font-family: var(--font-code) !important;
 }
 
-.nav-button i {
-  margin: 0 5px;
+/* متن و تیترهای رندر شده در مارک‌دانِ ژوپیتر */
+.cell .rendered_html,
+.cell .jp-RenderedHTMLCommon,
+.cell-output .rendered_html,
+.cell-output .rendered_html p,
+.cell-output .rendered_html h1,
+.cell-output .rendered_html h2,
+.cell-output .rendered_html h3,
+.cell-output .rendered_html h4,
+.cell-output .rendered_html h5,
+.cell-output .rendered_html h6 {
+    font-size: 0.9rem !important;  /* کوچیک‌تر کردن همه متن‌ها */
+    line-height: 1.6 !important;
 }
 
-/* RTL Support */
-[dir="rtl"] .nav-button.prev {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-[dir="rtl"] .nav-button.next {
-  margin-right: 0;
-  margin-left: auto;
-}
-
-/* ظاهر کد بلاک‌ها */
-pre code {
-  font-family: "Fira Code", monospace;
-  font-size: 0.95rem;
-  background: #1e1e1e;
-  color: #dcdcdc;
-  border-radius: 8px;
-  padding: 12px;
-  display: block;
-  line-height: 1.5;
-}
-
-/* ظاهر دکمه کپی */
-.quarto-code-copy-button {
-  background-color: #444;
-  color: #fff;
-  border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 0.8rem;
-}
-
+/* کم کردن سایز تیترها به صورت جداگانه */
+.cell-output .rendered_html h1 { font-size: 0.5rem !important; }
+.cell-output .rendered_html h2 { font-size: 0.2rem !important; }
+.cell-output .rendered_html h3 { font-size: 1.1rem !important; }
+.cell-output .rendered_html h4 { font-size: 1rem !important; }
 
 
